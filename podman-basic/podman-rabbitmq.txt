@@ -1,0 +1,3 @@
+podman network create rabbitmq_vnet
+
+podman run -d -it --rm --name rabbitmq2 --hostname rabbitmq2 -p 5672:5672 -p 15672:15672 --network rabbitmq_vnet -e RABBITMQ_ERLANG_COOKIE=rabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=password docker.io/rabbitmq:3.11.23-management
